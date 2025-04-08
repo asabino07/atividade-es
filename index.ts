@@ -1,7 +1,3 @@
-//esse projeto foi alterado na data de hoje:08/04
-// foi mudado a cor e ano do veiculo 
-// o codigo estava perfeito, continue assim
-
 import { Veiculo } from "./Veiculo";
 import prompt from "prompt-sync";
 
@@ -17,12 +13,14 @@ while (true) {
     console.log("3 - Subir marcha");
     console.log("4 - Descer marcha");
     console.log("5 - Imprimir dados do veículo");
+    console.log("6 - Exibir resumo rápido");
     console.log("0 - Sair");
 
     const opcao = +teclado('Escolha uma opção: ');
     if (opcao === 0) {
         break;
     }
+
     switch (opcao) {
         case 1:
             acelerar(carro);
@@ -39,6 +37,9 @@ while (true) {
         case 5:
             imprimirDados(carro);
             break;
+        case 6:
+            carro.exibirResumo();
+            break;
         default:
             console.log("Opção inválida.");
             break;
@@ -47,9 +48,9 @@ while (true) {
 
 console.table(carro);
 
-// Função auxiliar: acelerar
+// 🚗 Acelerar
 function acelerar(veiculo: Veiculo): void {
-    if (veiculo.marchaAtual != 0) {
+    if (veiculo.marchaAtual !== 0) {
         veiculo.velocidade += veiculo.potencia * 0.1;
         console.log(`Velocidade atual: ${veiculo.velocidade.toFixed(2)} km/h`);
     } else {
@@ -57,7 +58,7 @@ function acelerar(veiculo: Veiculo): void {
     }
 }
 
-// ✅ Nova função auxiliar: frear
+// 🚗 Frear
 function frear(veiculo: Veiculo): void {
     if (veiculo.velocidade > 0) {
         veiculo.velocidade -= veiculo.potencia * 0.1;
@@ -68,21 +69,23 @@ function frear(veiculo: Veiculo): void {
     }
 }
 
-// Função auxiliar: imprimir dados
+// 🖨️ Imprimir dados completos
 function imprimirDados(veiculo: Veiculo): void {
     console.log(`Marca: ${veiculo.marca}`);
     console.log(`Modelo: ${veiculo.modelo}`);
+    console.log(`Cor: ${veiculo.cor}`);
     console.log(`Potência: ${veiculo.potencia}`);
     console.log(`Número de marchas: ${veiculo.numeroMarchas}`);
     console.log(`Marcha atual: ${veiculo.marchaAtual}`);
     console.log(`Velocidade atual: ${veiculo.velocidade.toFixed(2)} km/h`);
 }
 
-// Função auxiliar: criação do veículo
+// 🧱 Criar veículo
 function criaVeiculo(): Veiculo {
     const veiculo: Veiculo = new Veiculo();
     veiculo.marca = teclado('Marca: ');
     veiculo.modelo = teclado('Modelo: ');
+    veiculo.cor = teclado('Cor do veículo: '); // 🔹 Novo campo
     veiculo.potencia = +teclado('Potência: ');
     veiculo.numeroMarchas = +teclado('Número de marchas: ');
     return veiculo;
