@@ -1,3 +1,7 @@
+//esse projeto foi alterado na data de hoje:08/04
+// foi mudado a cor e ano do veiculo 
+// o codigo estava perfeito, continue assim
+
 import { Veiculo } from "./Veiculo";
 import prompt from "prompt-sync";
 
