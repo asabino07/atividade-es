@@ -1,4 +1,4 @@
-# atividade-es
+# Atividade-es
  Atividade Git para cadeira de Engenharia de Software II
 Projeto  - Simulador de Veículo
 Este projeto foi desenvolvido como parte da atividade em grupo da disciplina de Internet das Coisas, e tem como objetivo aplicar os conceitos de versionamento com Git e GitHub em um projeto colaborativo.
@@ -24,8 +24,9 @@ Git & GitHub
 ---
 
 🧪 Funcionalidades
-Criar um novo veículo com marca, modelo, potência e número de marchas
+Criar um novo veículo com marca, modelo, cor, potência e número de marchas
 Acelerar o veículo se estiver engatado em marcha
 Frear progressivamente até parar
 Subir e descer marchas com limites validados
 Exibir os dados atuais do veículo
+Adicionar Cor ao carro
