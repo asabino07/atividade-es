@@ -1,6 +1,7 @@
 export class Veiculo {
     marca: string = 'Padrão';
     modelo: string = 'Padrão';
+    cor: string = 'Indefinida'; // 🔹 Novo atributo
     potencia: number = 0;
     numeroMarchas: number = 5;
     marchaAtual: number = 0;
@@ -13,5 +14,11 @@ export class Veiculo {
             this.marchaAtual = novaMarcha;
             console.log(`Marcha trocada para: ${this.marchaAtual}`);
         }
+    }
+
+    exibirResumo(): void {
+        console.log(`Veículo: ${this.marca} ${this.modelo} (${this.cor})`);
+        console.log(`Marcha atual: ${this.marchaAtual}`);
+        console.log(`Velocidade: ${this.velocidade.toFixed(2)} km/h`);
     }
 }
