@@ -24,6 +24,9 @@ while (true) {
         case 1:
             acelerar(carro);
             break;
+        case 2:
+            frear(carro);
+            break;
         case 3:
             carro.trocarMarcha(carro.marchaAtual + 1);
             break;
@@ -47,6 +50,18 @@ function acelerar(veiculo) {
     }
     else {
         console.log("Coloque uma marcha diferente de 0 para acelerar.");
+    }
+}
+// ✅ Nova função auxiliar: frear
+function frear(veiculo) {
+    if (veiculo.velocidade > 0) {
+        veiculo.velocidade -= veiculo.potencia * 0.1;
+        if (veiculo.velocidade < 0)
+            veiculo.velocidade = 0;
+        console.log(`Velocidade atual: ${veiculo.velocidade.toFixed(2)} km/h`);
+    }
+    else {
+        console.log("O veículo já está parado.");
     }
 }
 // Função auxiliar: imprimir dados
