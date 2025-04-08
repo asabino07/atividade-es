@@ -6,7 +6,7 @@ const teclado = prompt();
 console.log('Criação de veículo');
 const carro: Veiculo = criaVeiculo();
 
-while(true){
+while (true) {
     console.log("########### MENU ###########");
     console.log("1 - Acelerar");
     console.log("2 - Frear");
@@ -16,28 +16,52 @@ while(true){
     console.log("0 - Sair");
 
     const opcao = +teclado('Escolha uma opção: ');
-    if(opcao === 0){
+    if (opcao === 0) {
         break;
     }
     switch (opcao) {
         case 1:
             acelerar(carro);
             break;
-    
+        case 3:
+            carro.trocarMarcha(carro.marchaAtual + 1);
+            break;
+        case 4:
+            carro.trocarMarcha(carro.marchaAtual - 1);
+            break;
+        case 5:
+            imprimirDados(carro);
+            break;
         default:
+            console.log("Opção inválida.");
             break;
     }
 }
 
 console.table(carro);
 
-function acelerar(veiculo: Veiculo): void{
-    if(veiculo.marchaAtual != 0){
-    veiculo.velocidade += veiculo.potencia*0.1;
-    console.log(veiculo.velocidade);
-}}
+// Função auxiliar: acelerar
+function acelerar(veiculo: Veiculo): void {
+    if (veiculo.marchaAtual != 0) {
+        veiculo.velocidade += veiculo.potencia * 0.1;
+        console.log(`Velocidade atual: ${veiculo.velocidade.toFixed(2)} km/h`);
+    } else {
+        console.log("Coloque uma marcha diferente de 0 para acelerar.");
+    }
+}
 
-function criaVeiculo(): Veiculo{
+// Função auxiliar: imprimir dados
+function imprimirDados(veiculo: Veiculo): void {
+    console.log(`Marca: ${veiculo.marca}`);
+    console.log(`Modelo: ${veiculo.modelo}`);
+    console.log(`Potência: ${veiculo.potencia}`);
+    console.log(`Número de marchas: ${veiculo.numeroMarchas}`);
+    console.log(`Marcha atual: ${veiculo.marchaAtual}`);
+    console.log(`Velocidade atual: ${veiculo.velocidade.toFixed(2)} km/h`);
+}
+
+// Função auxiliar: criação do veículo
+function criaVeiculo(): Veiculo {
     const veiculo: Veiculo = new Veiculo();
     veiculo.marca = teclado('Marca: ');
     veiculo.modelo = teclado('Modelo: ');
@@ -45,5 +69,3 @@ function criaVeiculo(): Veiculo{
     veiculo.numeroMarchas = +teclado('Número de marchas: ');
     return veiculo;
 }
-
-
